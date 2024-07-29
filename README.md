@@ -10,6 +10,7 @@
 - Vite
 - Reactjs
 - Typescript
+- SASS
 - Bootstrap
 
 ## Wireframe/Layout do projeto:
