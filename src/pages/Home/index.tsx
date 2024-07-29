@@ -52,7 +52,6 @@ function Home() {
                     </Link>
                 </div>
             </div>
-            <p>{cnpj}</p>
         </div>
     )
 }
