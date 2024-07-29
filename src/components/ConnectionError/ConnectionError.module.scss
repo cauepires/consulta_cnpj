@@ -1,0 +1,30 @@
+.connectionError {
+    h1 {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--zinc-100);
+        
+        margin: 0 0 1rem 0;
+    }
+    a { 
+        margin: 0;
+
+        button {
+            width: fit-content;
+            height: auto;
+    
+            padding: .5rem 2rem;
+    
+            background: var(--lime-400);
+    
+            border: 2px solid var(--lime-400);
+            border-radius: .5rem;
+
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--zinc-950);
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+    }
+}

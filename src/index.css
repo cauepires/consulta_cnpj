@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --zinc-50: #fafafa;
+    --zinc-100: #f4f4f5;
+    --zinc-200: #e4e4e7;
+    --zinc-300: #d4d4d8;
+    --zinc-400: #a1a1aa;
+    --zinc-500: #71717a;
+    --zinc-600: #52525b;
+    --zinc-700: #3f3f46;
+    --zinc-800: #27272a;
+    --zinc-900: #18181b;
+    --zinc-950: #09090b;
+
+    --lime-50: #f7fee7;
+    --lime-100: #ecfccb;
+    --lime-200: #d9f99d;
+    --lime-300: #bef264;
+    --lime-400: #a3e635;
+    --lime-500: #84cc16;
+    --lime-600: #65a30d;
+    --lime-700: #4d7c0f;
+    --lime-800: #3f6212;
+    --lime-900: #365314;
+    --lime-950: #1a2e05;
+
+    --shadow-card: rgba(236, 251, 203, 0.2);
+}
+
+body, html {
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+
+    background: var(--zinc-950);
+}
+
+main {
+    width: 100%;
+    max-width: 2040px;
+
+    min-height: 100vh;
+    height: 100%;
+
+    margin: 0 auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button, a {
+    transition: all 0.1s;
+}
+button:hover, a:hover {
+    opacity: .8;
+}
+
+::-webkit-scrollbar {
+    width: .5rem;
+}
+::-webkit-scrollbar-track {
+    background: var(--zinc-800);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--lime-600);
+
+    border-radius: 20px;
+    border: 2px solid var(--zinc-800);
+}
+
+@media (max-width: 992px) {
+    body, html {font-size: 15px;}
+}
+@media (max-width: 576px) {
+    body, html {font-size: 14px;}
+}
