@@ -60,7 +60,7 @@ function Consulta() {
                     </div>
                     {dataCnpj.qsa.length > 1 &&
                         <div className="col-11 offset-lg-1 col-lg-6 col-xl-5 d-flex flex-column justify-content-start align-items-start">
-                            <h1>Quadro Societário</h1>
+                            <h2>Quadro Societário</h2>
                             <div className={style.consulta__quadroSocietario}>
                                 {dataCnpj.qsa.map((socio, index) => (
                                     <QuadroSocio

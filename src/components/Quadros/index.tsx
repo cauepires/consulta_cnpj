@@ -45,7 +45,7 @@ function QuadroEmpresa( {nome, razao_social, abertura, situacao, atividade, ende
                 </li>
                 <li>
                     <h3>Telefone:</h3>
-                    {telefone ? <CustomInput inputName={"empresaTelefone"} initialData={telefone} /> : <CustomInput inputName={"empresaTelefone"} initialData={"DADO NÃO INFORMADO"} />}
+                    {telefone ? <CustomInput inputName={"empresaTelefone"} initialData={telefone} phone /> : <CustomInput inputName={"empresaTelefone"} initialData={"DADO NÃO INFORMADO"} phone />}
                 </li>
                 <li>
                     <h3>E-mail:</h3>

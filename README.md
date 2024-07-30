@@ -13,6 +13,10 @@
 - SASS
 - Bootstrap
 
+## Tecnologias para deploy do projeto:
+- Github
+- Vercel
+
 ## Wireframe/Layout do projeto:
 #### Página Inicial
 ![Layout | Página Inicial](https://consulta-cnpj-theta.vercel.app/layout_pag_inicial.jpg)
