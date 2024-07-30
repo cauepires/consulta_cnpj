@@ -11,6 +11,10 @@ import { CnpjError } from '../../components/CnpjError';
 import { ConnectionError } from '../../components/ConnectionError';
 import { NewSearch } from '../../components/NewSearch';
 
+import { convertDate } from '../../utils/convertDate';
+import { formatPhoneNumber } from '../../utils/formatPhoneNumber';
+import { SubmitButton } from '../../components/SubmitButton';
+
 function Consulta() {
     const cnpjValue: string = useLocation().pathname.slice(10)
 
@@ -33,37 +37,12 @@ function Consulta() {
         fetchData()
     }, []);
 
-    function convertDate(date: string): string {
-        const [year, month, day] = date.split('-')
-        return `${day}/${month}/${year}`
-    }
-
-    function formatPhoneNumber(phoneNumber: string): string {
-        const code = phoneNumber.slice(0, 2)
-        let phone
-
-        if (phoneNumber.length === 10) {
-            const phonePartOne = phoneNumber.slice(2, 6)
-            const phonePartTwo = phoneNumber.slice(6, 10)
-            
-            phone = `${phonePartOne}-${phonePartTwo}`
-        } else if (phoneNumber.length === 11) {
-            const phonePartOne = phoneNumber.slice(2, 7)
-            const phonePartTwo = phoneNumber.slice(7, 11)
-            
-            phone = `${phonePartOne}-${phonePartTwo}`
-        }
-        
-      
-        return `(${code}) ${phone}`
-    }
-
     if (loading) return <Loading />
     if (!dataCnpj) return <ConnectionError />
     if (dataCnpj?.type === "bad_request") return <CnpjError />
     return (
-        <>
-            <div className={`container ${style.consulta}`}>
+        <form className={style.consulta}>
+            <div className="container">
                 <div className="row justify-content-center align-items-center align-items-lg-stretch">
                     <div className="col-11 col-lg-5 col-xl-4 d-flex flex-column justify-content-start align-items-start mb-5 mb-lg-0">
                         <h1>Dados da Empresa</h1>
@@ -77,6 +56,7 @@ function Consulta() {
                             telefone={formatPhoneNumber(dataCnpj.ddd_telefone_1)}
                             email={dataCnpj.email}
                         />
+                        <SubmitButton type={"desk"} />
                     </div>
                     {dataCnpj.qsa.length > 1 &&
                         <div className="col-11 offset-lg-1 col-lg-6 col-xl-5 d-flex flex-column justify-content-start align-items-start">
@@ -85,6 +65,7 @@ function Consulta() {
                                 {dataCnpj.qsa.map((socio, index) => (
                                     <QuadroSocio
                                         key={index}
+                                        idSocio={(index.toString())}
                                         nome={socio.nome_socio}
                                         faixa_etaria={socio.faixa_etaria}
                                         qualificacao_socio={socio.qualificacao_socio}
@@ -94,10 +75,13 @@ function Consulta() {
                             </div>
                         </div>
                     }
+                    <div className="col-11 d-block d-lg-none">
+                        <SubmitButton type={"mob"} />
+                    </div>
                 </div>
             </div>
             <NewSearch />
-        </>
+        </form>
     );
 }
 

@@ -58,6 +58,20 @@ button:hover, a:hover {
     opacity: .8;
 }
 
+input:focus, input:focus-visible, input:hover {
+    outline: none;
+}
+input::placeholder {
+    opacity: 1;
+
+    color: var(--zinc-300);
+}
+input::-ms-input-placeholde {
+    opacity: 1;
+
+    color: var(--zinc-300);
+}
+
 ::-webkit-scrollbar {
     width: .5rem;
 }

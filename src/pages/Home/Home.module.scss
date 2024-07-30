@@ -50,17 +50,6 @@
                 border: none;
             }
         }
-        
-        input::placeholder {
-            opacity: 1;
-    
-            color: var(--zinc-100);
-        }
-        input::-ms-input-placeholde {
-            opacity: 1;
-
-            color: var(--zinc-100);
-        }
     }
     .home__input:hover {
         border: 2px solid var(--lime-500);

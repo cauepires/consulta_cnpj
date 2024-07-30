@@ -1,0 +1,18 @@
+.submitButton {
+    width: 100%;
+    height: auto;
+
+    margin: 2rem 0 0 0;
+    padding: .5rem 1rem;
+
+    background: var(--lime-400);
+
+    border: 2px solid var(--lime-400);
+    border-radius: .5rem;
+
+    
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--zinc-950);
+    text-transform: uppercase;
+}

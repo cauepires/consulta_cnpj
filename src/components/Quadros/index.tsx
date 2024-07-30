@@ -1,5 +1,7 @@
 import style from './Quadros.module.scss';
 
+import { CustomInput } from '../CustomInput';
+
 type QuadroEmpresaProps = {
     nome?: string,
     razao_social?: string,
@@ -12,40 +14,42 @@ type QuadroEmpresaProps = {
 }
 
 function QuadroEmpresa( {nome, razao_social, abertura, situacao, atividade, endereco, telefone, email}: QuadroEmpresaProps ) {
+
+
     return (
         <div className={style.quadro}>
             <ul>
                 <li>
                     <h3>Nome:</h3>
-                    {nome ? <p>{nome}</p> : <p className={style.quadro__naoInformado}>Nome não informado</p>}
+                    {nome ?  <CustomInput inputName={"empresaNome"} initialData={nome} /> : <CustomInput inputName={"empresaNome"} initialData={"DADO NÃO INFORMADO"} />}
                 </li>
                 <li>
                     <h3>Razão Social:</h3>
-                    {razao_social ? <p>{razao_social}</p> : <p className={style.quadro__naoInformado}>Razão social não informada</p>}
+                    {razao_social ? <CustomInput inputName={"empresaRazaoSocial"} initialData={razao_social} /> : <CustomInput inputName={"empresaRazaoSocial"} initialData={"DADO NÃO INFORMADO"} />}
                 </li>
                 <li>
                     <h3>Data de Abertura:</h3>
-                    {abertura ? <p>{abertura}</p> : <p className={style.quadro__naoInformado}>Data de abertura não informada</p>}
+                    {abertura ? <CustomInput inputName={"empresaDataAbertura"} initialData={abertura} date /> :  <CustomInput inputName={"empresaDataAbertura"} initialData={"00/00/0000"} date />}
                 </li>
                 <li>
                     <h3>Situação:</h3>
-                    {situacao ? <p>{situacao}</p> : <p className={style.quadro__naoInformado}>Situação não informada</p>}
+                    {situacao ? <CustomInput inputName={"empresaSituacao"} initialData={situacao} /> : <CustomInput inputName={"empresaSituacao"} initialData={"DADO NÃO INFORMADO"} />}
                 </li>
                 <li>
                     <h3>Atividade Principal:</h3>
-                    {atividade ? <p>{atividade}</p> : <p className={style.quadro__naoInformado}>Atividade Principal não informada</p>}
+                    {atividade ? <CustomInput inputName={"empresaAtividadePrincipal"} initialData={atividade} /> : <CustomInput inputName={"empresaAtividadePrincipal"} initialData={"DADO NÃO INFORMADO"} />}
                 </li>
                 <li>
                     <h3>Endereço:</h3>
-                    {endereco ? <p>{endereco}</p> : <p className={style.quadro__naoInformado}>Endereço não informado</p>}
+                    {endereco ? <CustomInput inputName={"empresaEndereco"} initialData={endereco} /> : <CustomInput inputName={"empresaEndereco"} initialData={"DADO NÃO INFORMADO"} />}
                 </li>
                 <li>
                     <h3>Telefone:</h3>
-                    {telefone ? <p>{telefone}</p> : <p className={style.quadro__naoInformado}>Telefone não informado</p>}
+                    {telefone ? <CustomInput inputName={"empresaTelefone"} initialData={telefone} /> : <CustomInput inputName={"empresaTelefone"} initialData={"DADO NÃO INFORMADO"} />}
                 </li>
                 <li>
                     <h3>E-mail:</h3>
-                    {email ? <p>{email}</p> : <p className={style.quadro__naoInformado}>E-mail não informado</p>}
+                    {email ? <CustomInput inputName={"empresaEmail"} initialData={email} /> : <CustomInput inputName={"empresaEmail"} initialData={"DADO NÃO INFORMADO"} />}
                 </li>
             </ul>
         </div>
@@ -53,31 +57,32 @@ function QuadroEmpresa( {nome, razao_social, abertura, situacao, atividade, ende
 }
 
 type QuadroSocioProps = {
+    idSocio: string,
     nome?: string,
     faixa_etaria?: string,
     qualificacao_socio?: string,
     entrada_sociedade?: string,
 }
 
-function QuadroSocio( { nome, faixa_etaria, qualificacao_socio, entrada_sociedade }: QuadroSocioProps ) {
+function QuadroSocio( { idSocio, nome, faixa_etaria, qualificacao_socio, entrada_sociedade }: QuadroSocioProps ) {
     return (
         <div className={style.quadro}>
             <ul>
                 <li>
                     <h3>Nome:</h3>
-                    {nome ? <p>{nome}</p> : <p className={style.quadro__naoInformado}>Não informado</p>}
+                    {nome ? <CustomInput inputName={`socio${idSocio}_nome`} initialData={nome} /> : <CustomInput inputName={`socio${idSocio}_nome`} initialData={"DADO NÃO INFORMADO"} />}
                 </li>
                 <li>
                     <h3>Faixa Etária:</h3>
-                    {faixa_etaria ? <p>{faixa_etaria}</p> : <p className={style.quadro__naoInformado}>Não informado</p>}
+                    {faixa_etaria ? <CustomInput inputName={`socio${idSocio}_faixaEtaria`} initialData={faixa_etaria} /> : <CustomInput inputName={`socio${idSocio}_faixaEtaria`} initialData={"DADO NÃO INFORMADO"} />}
                 </li>
                 <li>
                     <h3>Qualificação do Sócio:</h3>
-                    {qualificacao_socio ? <p>{qualificacao_socio}</p> : <p className={style.quadro__naoInformado}>Não informado</p>}
+                    {qualificacao_socio ? <CustomInput inputName={`socio${idSocio}_QualificacaoSocio`} initialData={qualificacao_socio} /> : <CustomInput inputName={`socio${idSocio}_QualificacaoSocio`} initialData={"DADO NÃO INFORMADO"} />}
                 </li>
                 <li>
                     <h3>Data de Entrada na Sociedade:</h3>
-                    {entrada_sociedade ? <p>{entrada_sociedade}</p> : <p className={style.quadro__naoInformado}>Não informado</p>}
+                    {entrada_sociedade ? <CustomInput inputName={`socio${idSocio}_DataEntradaSociedade`} initialData={entrada_sociedade} date /> : <CustomInput inputName={`socio${idSocio}_DataEntradaSociedade`} initialData={"00/00/0000"} date />}
                 </li>
             </ul>
         </div>
